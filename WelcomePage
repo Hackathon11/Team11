@@ -1,0 +1,79 @@
+package studentNotifications;
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+
+public class WelcomePage extends Applet  {
+	
+	Font font =new Font("timeroman" , Font.CENTER_BASELINE,20);
+	Label lb = new Label("Welcome to Lehman");
+	Label lbl = new Label("Notification");
+	
+	
+	Button bt = new Button("Log in");
+	Button btn = new Button("sign up");
+
+	welcome btPN = new welcome();
+	
+	NotificationApp btnPN = new  NotificationApp();
+	
+
+	public void init() {
+		setLayout(null);
+		setSize(370,500);
+		
+		
+		add(lb);
+		add(lbl);
+		add(bt);
+		add(btn);
+		add(btPN);
+		add(btnPN);
+		
+		
+		lb.setBounds(50, 125, 120, 120);
+		lbl.setBounds(90,150,110,110);
+		bt.setBounds(250 , 390, 100,45);
+		btn.setBounds(250, 450, 100, 45);
+		
+		lb.setFont(font);
+		lbl.setFont(font);
+
+		bt.addActionListener(new switching(bt));
+		btn.addActionListener(new switching(btn));
+
+	}
+
+	public class switching implements ActionListener {
+		
+		Button clickedBN;
+		//Panel newPn;
+		public switching (Button button)
+		{
+			this.clickedBN = button;
+		}
+		
+	
+		@Override
+		public void actionPerformed(ActionEvent arg0)
+		{
+			if (clickedBN == bt){
+				btPN.setBounds(0,0,20,20);
+			}
+			else{
+				btnPN.setBounds(0,0,15,15);
+			}
+			//newPn.setBounds(0,0,200,200);
+			// TODO Auto-generated method stub
+			
+		}
+
+		
+	}
+	
+
+}
